@@ -10,5 +10,7 @@ public class Main {
         cat1.greet();
         cat2.greet();
         cat3.greet();
+        cat1.greet();
+        System.out.println(cat1.makeSound());
     }
 }
