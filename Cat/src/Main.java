@@ -1,16 +1,22 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
-        Cat cat1 = new Cat("Барсик", 3);
-        Cat cat2 = new Cat("Мурка", 5);
-        Cat cat3 = new Cat("Дуська", 1);
-        Owner owner1 = new Owner("Михаил");
-        Owner owner2 = new Owner("Виталий");
-        cat1.setOwner(owner1);
-        cat2.setOwner(owner2);
-        cat1.greet();
-        cat2.greet();
-        cat3.greet();
-        cat1.greet();
-        System.out.println(cat1.makeSound());
+        List<Cat> cats = new ArrayList<>();
+        cats.add(new Cat("Барсик", 3));
+        cats.add(new Cat("Мурка", 5));
+        cats.add(new Cat("Дуська", 1));
+        cats.add(new Cat("Шарик", 15));
+        cats.add(new Cat("Вилли", 4));
+
+        // Сортировка котов по возрасту с использованием CatComparator
+        Collections.sort(cats, new CatComparator());
+
+        // Вывод котов в отсортированном порядке
+        for (Cat cat : cats) {
+            System.out.println(cat.getName() + ": " + cat.getAge() + " года(лет)");
+        }
     }
 }

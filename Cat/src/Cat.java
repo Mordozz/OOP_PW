@@ -1,10 +1,11 @@
+import java.util.Comparator;
+
 class Cat implements Animal, Pet, AboutOwner, Greeting, OwnerActions {
     private String name;
     private int age;
     private String ownerName;
     private Owner owner;
 
-    // Конструктор класса Cat
     public Cat(String name, int age) {
         this.name = name;
         this.age = age;
@@ -45,6 +46,10 @@ class Cat implements Animal, Pet, AboutOwner, Greeting, OwnerActions {
         return owner;
     }
 
+    public int getAge() {
+        return age;
+    }
+
     @Override
     public void greet() {
         if (ownerName != null) {
@@ -52,5 +57,12 @@ class Cat implements Animal, Pet, AboutOwner, Greeting, OwnerActions {
         } else {
             System.out.println("Мяу! Меня зовут " + name + ". Мне " + age + " года(лет).");
         }
+    }
+}
+
+class CatComparator implements Comparator<Cat> {
+    @Override
+    public int compare(Cat cat1, Cat cat2) {
+        return Integer.compare(cat1.getAge(), cat2.getAge());
     }
 }
